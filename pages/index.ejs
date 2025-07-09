@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <section class="d-flex justify-content-center align-items-center h-100">
+      <div class="w-50 py-5 m-auto">
+        <% if (error) {%>
+        <div class="alert alert-danger"><%= error %></div>
+        <% } %>
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <h3 class="mb-5 text-uppercase text-center">Запись к врачу</h3>
+          <div class="col">
+            <div class="card card-registration my-4">
+              <form
+                method="POST"
+                action="/"
+                class="card-body p-md-5 text-black"
+              >
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="name">ФИО</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="form-control form-control-lg"
+                    pattern="^([А-ЯЁ][а-яё]+(-[А-ЯЁ][а-яё]+)?)(\s[А-ЯЁ][а-яё]+(-[А-ЯЁ][а-яё]+)?){1,2}$"
+                    required
+                  />
+                  <small
+                    >Формат: 2-3 слова, каждое с заглавной буквы, только русские
+                    буквы и дефисы</small
+                  >
+                </div>
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="phone">Номер телефона</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    class="form-control form-control-lg"
+                    pattern="^(\+7|8)?[\s\-]?\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{2}[\s\-]?\d{2}$"
+                    required
+                  />
+                  <small>Формат: +7 999 999 99 99 или 8 (999) 999-99-99</small>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="problem"
+                    >Опишите вашу проблему</label
+                  >
+                  <textarea
+                    type="text"
+                    name="problem"
+                    id="problem"
+                    rows="6"
+                    class="form-control form-control-lg"
+                  ></textarea>
+                </div>
+
+                <div class="d-flex justify-content-center pt-3">
+                  <button type="submit" class="btn btn-dark btn-lg w-100">
+                    Отправить
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/app.js"></script>
+  </body>
+</html>
