@@ -4,7 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const { addReception, getReceptions } = require("./receptions.controller");
-const { addUser, loginUser } = require("./users.controller");
+const { loginUser } = require("./users.controller");
 const auth = require("./middlewares/auth");
 
 const port = 3000;
